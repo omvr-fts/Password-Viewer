@@ -1,50 +1,50 @@
-# Wi‑Fi Password Viewer (Windows)
+# Wi-Fi Password Viewer (Windows)
 
-Petit script Python qui liste les profils Wi‑Fi enregistrés sur un ordinateur Windows et affiche les détails du profil choisi. Si Windows autorise l’accès à la clé, celle-ci apparaît en clair dans les résultats.
+A small Python script that lists the Wi-Fi profiles saved on a Windows computer and displays the details of the selected profile. If Windows allows access to the key, it will appear in plain text in the output.
 
-> À utiliser uniquement sur votre propre ordinateur ou avec l’autorisation explicite de son propriétaire. Une clé Wi‑Fi affichée est une information sensible : ne la publiez pas et ne partagez pas de capture d’écran contenant cette clé.
+> Use this only on your own computer or with the owner's explicit permission. A displayed Wi-Fi key is sensitive information: do not publish it or share screenshots containing it.
 
-## Fonctionnement
+## How it works
 
-Le script s’appuie sur `netsh`, l’outil réseau intégré à Windows :
+The script uses `netsh`, a network utility built into Windows:
 
-1. Il récupère la liste des profils Wi‑Fi enregistrés.
-2. Il affiche les profils détectés et demande d’en choisir un par numéro.
-3. Il affiche les détails du profil choisi avec `key=clear`. Cela peut révéler le mot de passe enregistré.
+1. It retrieves the list of saved Wi-Fi profiles.
+2. It displays the detected profiles and asks you to select one by number.
+3. It displays the selected profile's details using `key=clear`. This may reveal the saved password.
 
-Le script reconnaît les libellés de profils en anglais et en français. L’accès à la clé dépend des droits Windows et de la configuration de la machine.
+The script recognizes profile labels in English and French. Access to the key depends on your Windows permissions and system configuration.
 
-## Prérequis
+## Requirements
 
-- Windows avec `netsh` disponible.
-- Python 3.7 ou plus récent.
-- Un profil Wi‑Fi déjà enregistré sur l’ordinateur.
+- Windows with `netsh` available.
+- Python 3.7 or newer.
+- At least one Wi-Fi profile saved on the computer.
 
-Aucune dépendance Python externe n’est nécessaire.
+No external Python dependencies are required.
 
-## Utilisation
+## Usage
 
-Ouvrez PowerShell ou l’invite de commandes dans le dossier du script, puis lancez :
+Open PowerShell or Command Prompt in the script's folder, then run:
 
 ```powershell
 python passwd_viewer.py
 ```
 
-Choisissez le numéro correspondant au profil voulu. Les résultats s’affichent dans la console. Si la clé ne s’affiche pas, relancez le terminal avec les droits nécessaires et vérifiez que le profil est bien enregistré sur cet ordinateur.
+Choose the number for the profile you want. The results will appear in the console. If the key is not displayed, try reopening the terminal with the required permissions and check that the profile is saved on this computer.
 
-## Sécurité et confidentialité
+## Security and privacy
 
-- N’utilisez pas ce script pour consulter les réseaux enregistrés sur l’appareil d’une autre personne sans autorisation.
-- Ne publiez jamais les résultats de la commande, une capture d’écran ou un journal contenant une clé Wi‑Fi.
-- Si vous partagez le dépôt, partagez uniquement le code source, jamais les mots de passe récupérés.
-- Utilisez un dépôt privé si le projet contient ensuite des exemples ou des captures réelles, après avoir retiré toute donnée sensible.
+- Do not use this script to view Wi-Fi profiles saved on someone else's device without permission.
+- Never publish command output, screenshots, or logs that contain a Wi-Fi key.
+- If you share the repository, share only the source code, never any recovered passwords.
+- If you later add examples or real screenshots, remove all sensitive information first and consider using a private repository.
 
-## Limites
+## Limitations
 
-- Ce script est conçu pour Windows ; il ne fonctionne pas tel quel sur Linux ou macOS.
-- Il affiche les informations disponibles pour le profil sélectionné et ne modifie pas les paramètres du réseau.
-- Une saisie qui n’est pas un numéro peut interrompre le script ; choisissez un numéro affiché dans la liste.
+- This script is designed for Windows and will not work as-is on Linux or macOS.
+- It displays the information available for the selected profile and does not change network settings.
+- Entering something other than a number may cause the script to stop with an error. Choose a number shown in the list.
 
-## Licence
+## License
 
-Ce projet est distribué sous la licence MIT. Consultez le fichier [LICENSE](LICENSE) pour le texte complet.
+This project is distributed under the MIT License. See the [LICENSE](LICENSE) file for the full text.
